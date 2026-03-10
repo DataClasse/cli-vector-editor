@@ -60,3 +60,6 @@ venv.bak/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local instructions (do not publish)
+PUBLISH.md
