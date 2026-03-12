@@ -52,7 +52,6 @@ venv.bak/
 # IDEs
 .vscode/
 .idea/
-.cursor/
 *.swp
 *.swo
 *~
@@ -61,5 +60,3 @@ venv.bak/
 .DS_Store
 Thumbs.db
 
-# Local instructions (do not publish)
-PUBLISH.md

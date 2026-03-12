@@ -1,6 +1,9 @@
 from src.shapes import Point, Segment, Circle, Square, Oval, Rectangle
 
 
+SHAPE_NAMES = {"point", "segment", "circle", "square", "oval", "rectangle"}
+
+
 def parse_command(line: str):
     line = line.strip()
     if not line:
@@ -35,6 +38,8 @@ def parse_command(line: str):
             return {"action": "delete", "id": int(parts[1])}
         except ValueError:
             return {"action": "invalid"}
+    if action in SHAPE_NAMES:
+        return {"action": "invalid", "hint": "add"}
     return {"action": "invalid"}
 
 
