@@ -30,3 +30,21 @@ class Square:
 
     def __repr__(self):
         return f"Square({self.x}, {self.y}, {self.side})"
+
+
+class Oval:
+    def __init__(self, x: float, y: float, a: float, b: float):
+        self.x, self.y = x, y
+        self.a, self.b = a, b
+
+    def __repr__(self):
+        return f"Oval({self.x}, {self.y}, {self.a}, {self.b})"
+
+
+class Rectangle:
+    def __init__(self, x: float, y: float, width: float, height: float):
+        self.x, self.y = x, y
+        self.width, self.height = width, height
+
+    def __repr__(self):
+        return f"Rectangle({self.x}, {self.y}, {self.width}, {self.height})"

@@ -1,5 +1,5 @@
 import pytest
-from src.shapes import Point, Segment, Circle, Square
+from src.shapes import Point, Segment, Circle, Square, Oval, Rectangle
 
 
 def test_point_repr():
@@ -20,3 +20,13 @@ def test_circle_repr():
 def test_square_repr():
     sq = Square(0, 0, 4)
     assert repr(sq) == "Square(0, 0, 4)"
+
+
+def test_oval_repr():
+    o = Oval(0, 0, 5, 3)
+    assert repr(o) == "Oval(0, 0, 5, 3)"
+
+
+def test_rectangle_repr():
+    r = Rectangle(0, 0, 10, 4)
+    assert repr(r) == "Rectangle(0, 0, 10, 4)"

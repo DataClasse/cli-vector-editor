@@ -1,4 +1,4 @@
-from src.shapes import Point, Segment, Circle, Square
+from src.shapes import Point, Segment, Circle, Square, Oval, Rectangle
 
 
 def parse_command(line: str):
@@ -20,6 +20,14 @@ def parse_command(line: str):
         return {"action": "list"}
     if action in ("quit", "exit", "q"):
         return {"action": "quit"}
+    if action == "save":
+        if len(parts) != 2:
+            return {"action": "invalid"}
+        return {"action": "save", "path": parts[1]}
+    if action == "load":
+        if len(parts) != 2:
+            return {"action": "invalid"}
+        return {"action": "load", "path": parts[1]}
     if action == "delete":
         if len(parts) != 2:
             return {"action": "invalid"}
@@ -43,4 +51,8 @@ def create_shape_from_command(cmd):
         return Circle(args[0], args[1], args[2])
     if shape_name == "square" and len(args) == 3:
         return Square(args[0], args[1], args[2])
+    if shape_name == "oval" and len(args) == 4:
+        return Oval(args[0], args[1], args[2], args[3])
+    if shape_name == "rectangle" and len(args) == 4:
+        return Rectangle(args[0], args[1], args[2], args[3])
     return None

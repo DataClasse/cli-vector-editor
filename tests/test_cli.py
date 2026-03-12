@@ -58,3 +58,31 @@ def test_create_shape_invalid_args_returns_none():
     cmd = parse_command("add point 1")  # не хватает y
     shape = create_shape_from_command(cmd)
     assert shape is None
+
+
+def test_parse_save():
+    cmd = parse_command("save shapes.json")
+    assert cmd["action"] == "save"
+    assert cmd["path"] == "shapes.json"
+
+
+def test_parse_load():
+    cmd = parse_command("load shapes.json")
+    assert cmd["action"] == "load"
+    assert cmd["path"] == "shapes.json"
+
+
+def test_create_shape_oval():
+    cmd = parse_command("add oval 0 0 5 3")
+    shape = create_shape_from_command(cmd)
+    assert shape is not None
+    assert shape.__class__.__name__ == "Oval"
+    assert shape.a == 5 and shape.b == 3
+
+
+def test_create_shape_rectangle():
+    cmd = parse_command("add rectangle 0 0 10 4")
+    shape = create_shape_from_command(cmd)
+    assert shape is not None
+    assert shape.__class__.__name__ == "Rectangle"
+    assert shape.width == 10 and shape.height == 4
